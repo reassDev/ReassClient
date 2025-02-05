@@ -61,6 +61,18 @@ public class RCConfig extends Config {
     )
     public static boolean isPtOn = false;
 
+    @Switch(
+            name = "Death Alert",
+            category = "Dungeons"
+    )
+    public static boolean isDeathAlertOn = false;
+
+    @Text(
+            name = "Death Alert Message",
+            category = "Dungeons"
+    )
+    public static String deathAlertMessage = "[Player] died!";
+
     public RCConfig() {
         super(new Mod(ReassClient.NAME, ModType.SKYBLOCK), ReassClient.MODID + ".json");
         initialize();

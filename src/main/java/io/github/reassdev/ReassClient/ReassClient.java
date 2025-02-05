@@ -6,6 +6,7 @@ import cc.polyfrost.oneconfig.libs.eventbus.Subscribe;
 import cc.polyfrost.oneconfig.libs.universal.UChat;
 import io.github.reassdev.ReassClient.command.MainCommand;
 import io.github.reassdev.ReassClient.config.RCConfig;
+import io.github.reassdev.ReassClient.features.DeathAlert;
 import io.github.reassdev.ReassClient.features.PartyCommands;
 import io.github.reassdev.ReassClient.features.VanguardProfit;
 import net.minecraft.client.Minecraft;
@@ -33,6 +34,7 @@ public class ReassClient {
         CommandManager.INSTANCE.registerCommand(new MainCommand());
         EventManager.INSTANCE.register(VanguardProfit.class);
         EventManager.INSTANCE.register(PartyCommands.class);
+        EventManager.INSTANCE.register(DeathAlert.class);
         EventManager.INSTANCE.register(this);
     }
 

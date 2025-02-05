@@ -20,15 +20,15 @@ public class VanguardProfit {
             if (!RCConfig.vanguardProfitWebhook.contains("discord.com/api/webhooks/")) {
                 ReassClient.sendModMessage("§cInvalid webhook URL! Please set a valid webhook URL in the config.");
             } else {
-                if(event.getFullyUnformattedMessage().startsWith("[SkyHanni] Profit for Vanguard Corpse:")) {
-                try {
-                    URL url = new URL(RCConfig.vanguardProfitWebhook);
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("POST");
-                    connection.setRequestProperty("Content-Type", "application/json");
-                    connection.setDoOutput(true);
-                    String[] profit = event.getFullyUnformattedMessage().split(":");
-                    String jsonPayload = "{\"content\": \"" + "Vanguard Opened. Profit:" + profit[1] + "\"}";
+                if (event.getFullyUnformattedMessage().startsWith("[SkyHanni] Profit for Vanguard Corpse:")) {
+                    try {
+                        URL url = new URL(RCConfig.vanguardProfitWebhook);
+                        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                        connection.setRequestMethod("POST");
+                        connection.setRequestProperty("Content-Type", "application/json");
+                        connection.setDoOutput(true);
+                        String[] profit = event.getFullyUnformattedMessage().split(":");
+                        String jsonPayload = "{\"content\": \"" + "Vanguard Opened. Profit:" + profit[1] + "\"}";
 
                     try (OutputStream os = connection.getOutputStream()) {
                         byte[] input = jsonPayload.getBytes(StandardCharsets.UTF_8);
