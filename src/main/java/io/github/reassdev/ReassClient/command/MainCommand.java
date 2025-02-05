@@ -13,7 +13,7 @@ public class MainCommand {
     private void handle() {
         ReassClient.config.openGui();
     }
-    @SubCommand(description = "Activate Developer Mode", aliases = "developer")
+    @SubCommand(description = "Activate Developer Mode", aliases = "developer") // Doesn't do anything rn
     private void dev() {
         ReassClient.sendModMessage("§bDeveloper Mode Toggled");
     }
@@ -34,5 +34,30 @@ public class MainCommand {
             fps = "§4" + Minecraft.getDebugFPS();
         }
         ReassClient.sendModMessage("§bFPS: " + fps);
+    }
+
+    @SubCommand(description="Shows the version of the mod")
+    private void version() {
+        ReassClient.sendModMessage("§b" + ReassClient.NAME + " §6v" + ReassClient.VERSION);
+    }
+
+    @SubCommand(description="Opens the backpack of the specified number")
+    private void bp(int number) {
+        UChat.say("/backpack " + number);
+    }
+
+    @SubCommand(description="Opens the Ender Chest page of the specified number")
+    private void ec(int number) {
+        UChat.say("/enderchest " + number);
+    }
+
+    @SubCommand(description="Opens the wardrobe")
+    private void wd() {
+        UChat.say("/wardrobe");
+    }
+
+    @SubCommand(description="Shows the help message")
+    private void help() {
+        // Figure out how to override the help message
     }
 }
