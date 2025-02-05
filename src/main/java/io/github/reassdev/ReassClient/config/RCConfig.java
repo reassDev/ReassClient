@@ -31,6 +31,36 @@ public class RCConfig extends Config {
     )
     public static String vanguardProfitWebhook = "Link Here";
 
+    @Switch(
+            name = "Party Commands",
+            category = "Party Commands"
+    )
+    public static boolean isPartyCommandsOn = false;
+
+    @Switch(
+            name = "!warp",
+            category = "Party Commands"
+    )
+    public static boolean isWarpOn = false;
+
+    @Switch(
+            name = "!coords",
+            category = "Party Commands"
+    )
+    public static boolean isCoordsOn = false;
+
+    @Switch(
+            name = "!allinvite",
+            category = "Party Commands"
+    )
+    public static boolean isAllInviteOn = false;
+
+    @Switch(
+            name = "!pt",
+            category = "Party Commands"
+    )
+    public static boolean isPtOn = false;
+
     public RCConfig() {
         super(new Mod(ReassClient.NAME, ModType.SKYBLOCK), ReassClient.MODID + ".json");
         initialize();

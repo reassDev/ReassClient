@@ -6,7 +6,9 @@ import cc.polyfrost.oneconfig.libs.eventbus.Subscribe;
 import cc.polyfrost.oneconfig.libs.universal.UChat;
 import io.github.reassdev.ReassClient.command.MainCommand;
 import io.github.reassdev.ReassClient.config.RCConfig;
+import io.github.reassdev.ReassClient.features.PartyCommands;
 import io.github.reassdev.ReassClient.features.VanguardProfit;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
 import cc.polyfrost.oneconfig.utils.commands.CommandManager;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -30,6 +32,7 @@ public class ReassClient {
         config = new RCConfig();
         CommandManager.INSTANCE.registerCommand(new MainCommand());
         EventManager.INSTANCE.register(VanguardProfit.class);
+        EventManager.INSTANCE.register(PartyCommands.class);
         EventManager.INSTANCE.register(this);
     }
 
@@ -44,5 +47,9 @@ public class ReassClient {
             UChat.chat("§bType §e/rc §bto open the GUI");
             RCConfig.isFirstLoad = false;
         }
+    }
+
+    public static String getCoordsString() {
+        return "X: " + Math.round(Minecraft.getMinecraft().thePlayer.posX) + " Y: " + Math.round(Minecraft.getMinecraft().thePlayer.posY) + " Z: " + Math.round(Minecraft.getMinecraft().thePlayer.posZ);
     }
 }
